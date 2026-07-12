@@ -23,6 +23,8 @@ See 'snap info docker' for additional versions.
 
 ## Решение 0
 
+![screen](img/img0.png)
+
 ---
 
 ## Задача 1
