@@ -117,6 +117,20 @@ See 'snap info docker' for additional versions.
 
 ## Решение 4
 
+1. Скрипт для клонирования репозитория и запуска контейнеров [script.sh](script.sh)
+2. Результат запуска контейнеров и IP ВМ
+
+    ![screen](img/img7.png)
+
+3. После проверки подключений через ```https://check-host.net/check-http``` ещё проверка с хоста
+
+    ![screen](img/img8.png)
+
+4. Вывод SQL-запроса 
+
+    ![screen](img/img9.png)
+
+
 ---
 ## Задача 5 (*)
 1. Напишите и задеплойте на вашу облачную ВМ bash скрипт, который произведет резервное копирование БД mysql в директорию "/opt/backup" с помощью запуска в сети "backend" контейнера из образа ```schnitzler/mysqldump``` при помощи ```docker run ...``` команды. Подсказка: "документация образа."
@@ -132,8 +146,24 @@ See 'snap info docker' for additional versions.
 
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
+
 ---
 
-## Решение 0
+## Решение 6
+
+1. Скачиваем `docker pull hashicorp/terraform:latest`
+
+    ![screen](img/img10.png)
+
+2. Сохраняем контейнер в архив `docker save hashicorp/terraform -o /tmp/neto/image.tar`
+3. Разархивируем `tar -xf image.tar `
+
+    ![screen](img/img11.png)
+
+4. переходим в папку `cd blobs/sha256`
+5. Находим самый большой файл и разархивируем его `tar xf ...`
+6. Получаем terraform в папке bin, размер совпадает со слоем из истории
+
+    ![screen](img/img12.png)
 
 ---
