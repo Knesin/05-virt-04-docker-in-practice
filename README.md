@@ -46,6 +46,16 @@ See 'snap info docker' for additional versions.
 
 ## Решение 1
 
+1. Форк https://github.com/Knesin/shvirtd-example-python
+2. Созданный файл [Dockerfile.python](https://github.com/Knesin/shvirtd-example-python/blob/main/Dockerfile.python)
+3. Созданный файл [.dockerignore](https://github.com/Knesin/shvirtd-example-python/blob/main/.dockerignore)
+4. Сборка контейнера `docker build -f Dockerfile.python -t fastapi-app .` 
+
+    ![screen](img/img1.png)
+
+5. Запуск без БД `docker run --rm -p 5000:5000 fastapi-app` в браузере будет ошибка "Internal Server Error"
+
+    ![screen](img/img2.png)
 ---
 
 ## Задача 2 (*)
@@ -78,6 +88,23 @@ See 'snap info docker' for additional versions.
 
 ## Решение 3
 
+1. Созданный файл [compose.yaml](https://github.com/Knesin/shvirtd-example-python/blob/main/compose.yaml)
+2. Запуск контейнеров `docker compose up -d`
+
+    ![screen](img/img3.png)
+
+3. Проверка в браузере 
+
+    ![screen](img/img4.png)
+
+4. Вывод SQL-запроса. Вход в контейнер `docker exec -ti shvirtd-example-python-db-1 mysql -uroot -pYtReWq4321` и запрос `show databases; use virtd; show tables; SELECT * from requests LIMIT 10;`
+
+    ![screen](img/img5.png)
+
+5. Остановка контейнеров `docker compose down`
+
+    ![screen](img/img6.png)
+
 ---
 ## Задача 4
 1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
@@ -102,6 +129,7 @@ See 'snap info docker' for additional versions.
 
 ---
 ## Задача 6
+
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
 ---
