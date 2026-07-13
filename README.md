@@ -68,6 +68,25 @@ See 'snap info docker' for additional versions.
 
 ## Решение 2 (*)
 
+Выполнял в Windows
+1. Нужны последнии версии Docker и yc (`yc components update`)
+2. Создаём реестр в Container Registry `yc container registry create --name netology-registry`
+3. Конфигурируем Docker для использования docker-credential-yc `yc container registry configure-docker`
+4. Скачиваем репозиторий  `git clone git@github.com:Knesin/shvirtd-example-python.git`
+5. Собираем контейнер `docker build -f Dockerfile.python -t fastapi-app .`
+6. Узнаём ID реестра `yc container registry list`
+    
+    ![screen](img/img13.png)
+
+7. Docker-образу присваиваем тег `docker tag fastapi-app cr.yandex/crp67n1heh7nski7uli5/fastapi-app:test`
+8. Загрузите Docker-образ в репозиторий Container Registry `docker push cr.yandex/crp67n1heh7nski7uli5/fastapi-app:test`
+
+    ![screen](img/img14.png)
+
+9. В вэбе находим загруженный образ и запускаем сканирование.
+
+    ![screen](img/img15.png)
+
 ---
 ## Задача 3
 1. Изучите файл "proxy.yaml"
