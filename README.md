@@ -79,13 +79,14 @@ See 'snap info docker' for additional versions.
     ![screen](img/img13.png)
 
 7. Docker-образу присваиваем тег `docker tag fastapi-app cr.yandex/crp67n1heh7nski7uli5/fastapi-app:test`
-8. Загрузите Docker-образ в репозиторий Container Registry `docker push cr.yandex/crp67n1heh7nski7uli5/fastapi-app:test`
+8. Загружаем Docker-образ в репозиторий Container Registry `docker push cr.yandex/crp67n1heh7nski7uli5/fastapi-app:test`
 
     ![screen](img/img14.png)
 
 9. В вэбе находим загруженный образ и запускаем сканирование.
 
     ![screen](img/img15.png)
+    ![screen](img/img16.png)
 
 ---
 ## Задача 3
